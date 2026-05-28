@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DCS UPT — Undergraduate Pilot Training for DCS World</title>
+  <meta name="description" content="A curated training pipeline for new pilots in DCS World. Real-world USAF training structure adapted for the simulator." />
+  <link rel="stylesheet" href="assets/css/style.css" />
+</head>
+<body>
+
+  <!-- Status strip -->
+  <div class="status-strip" role="status" aria-label="Site status">
+    <div class="status-strip-inner">
+      <span>NET <span class="ok">●</span> ONLINE</span>
+      <span>SITE STATUS <span class="ok blink">●</span> OPERATIONAL</span>
+      <span>SYS <span class="amber">●</span> v0.1 ALPHA</span>
+      <span data-zulu>--:--:--Z</span>
+    </div>
+  </div>
+
+  <!-- Top bar / nav -->
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a href="index.html" class="brand" aria-label="DCS UPT home">
+        <span class="brand-mark">UPT</span>
+        <span>
+          DCS UPT
+          <span class="brand-sub block">UNDERGRADUATE&nbsp;PILOT&nbsp;TRAINING</span>
+        </span>
+      </a>
+      <button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">[ MENU ]</button>
+      <nav class="nav" id="primary-nav" aria-label="Primary">
+        <a href="index.html">Home</a>
+        <a href="phases/iqt.html" data-section="phases">Phases</a>
+        <a href="airframes/fa-18c.html" data-section="airframes">Airframes</a>
+        <a href="resources/tools.html" data-section="resources">Resources</a>
+        <a href="about.html">About</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+
+      <!-- Hero -->
+      <section class="hero">
+        <div class="hero-grid">
+          <div class="reveal">
+            <div class="hero-eyebrow">CLASS 26-01 // VIRTUAL FLIGHT TRAINING</div>
+            <h1>From <span class="accent">zero hours</span><br/>to wingman.</h1>
+            <p class="hero-lead">
+              A curated learning pipeline for new DCS World pilots — built on real USAF training structure.
+              Master the fundamentals, then take it to the merge.
+            </p>
+            <div class="hero-cta">
+              <a href="phases/iqt.html" class="btn">Begin Training &nbsp;›</a>
+              <a href="phases/start-here.html" class="btn btn-ghost">Sim Setup First</a>
+            </div>
+          </div>
+
+          <!-- ADI mock instrument -->
+          <div class="reveal" aria-hidden="true">
+            <div class="adi-mock">
+              <span class="adi-label tl">ATT</span>
+              <span class="adi-label tr">M 0.78</span>
+              <span class="adi-label bl">AOA 4.2</span>
+              <span class="adi-label br">G 1.0</span>
+              <div class="adi-pitch">
+                <span data-pitch="10"></span>
+                <span data-pitch="5"></span>
+                <span data-pitch="-5"></span>
+                <span data-pitch="-10"></span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Phase pipeline -->
+      <section class="block">
+        <div class="section-header">
+          <span class="num">[ 01 ]</span>
+          <h2>Training Pipeline</h2>
+          <span class="sub">SIX PHASES // SEQUENTIAL</span>
+        </div>
+
+        <p style="max-width: 70ch; margin-bottom: 2rem; color: var(--text);">
+          DCS UPT is structured the way real squadrons train new pilots — sequential blocks
+          that build on each other. Start at the top and work down, or jump to whichever phase
+          matches your current skill level.
+        </p>
+
+        <div class="phase-grid">
+          <a href="phases/start-here.html" class="phase-card reveal">
+            <div class="tag">PHASE 0</div>
+            <h3>Start Here</h3>
+            <p>Sim setup, hardware, controls, settings, and how to get DCS configured for serious flying.</p>
+            <div class="meta">
+              <span>STATUS</span>
+              <span>SETUP &nbsp;›</span>
+            </div>
+          </a>
+
+          <a href="phases/iqt.html" class="phase-card reveal">
+            <div class="tag">PHASE 1 // IQT</div>
+            <h3>Initial Qualification</h3>
+            <p>Aircraft systems, basic airmanship, formation flying, instrument procedures, and ground ops.</p>
+            <div class="meta">
+              <span>13 RESOURCES</span>
+              <span>ENTER &nbsp;›</span>
+            </div>
+          </a>
+
+          <a href="phases/mqt.html" class="phase-card disabled reveal" aria-disabled="true">
+            <div class="tag">PHASE 2 // MQT</div>
+            <h3>Mission Qualification</h3>
+            <p>Comms, tactical formation, basic intercepts, navigation under load, and mission execution.</p>
+            <div class="meta">
+              <span>PENDING</span>
+              <span>STAND BY</span>
+            </div>
+          </a>
+
+          <a href="phases/bfm.html" class="phase-card disabled reveal" aria-disabled="true">
+            <div class="tag">PHASE 3 // A-A</div>
+            <h3>BFM &amp; Air-to-Air</h3>
+            <p>Basic fighter maneuvers, 1v1 and 2v1, intercepts, BVR engagements, and ACM fundamentals.</p>
+            <div class="meta">
+              <span>PENDING</span>
+              <span>STAND BY</span>
+            </div>
+          </a>
+
+          <a href="phases/strike.html" class="phase-card disabled reveal" aria-disabled="true">
+            <div class="tag">PHASE 4 // A-G</div>
+            <h3>Strike &amp; SEAD</h3>
+            <p>Air-to-ground weapons employment, suppression of enemy air defenses, strike packages.</p>
+            <div class="meta">
+              <span>PENDING</span>
+              <span>STAND BY</span>
+            </div>
+          </a>
+
+          <a href="phases/cas.html" class="phase-card disabled reveal" aria-disabled="true">
+            <div class="tag">PHASE 5 // CAS</div>
+            <h3>Close Air Support</h3>
+            <p>9-lines, JTAC coordination, troops-in-contact, urban CAS, and tactical decision-making.</p>
+            <div class="meta">
+              <span>PENDING</span>
+              <span>STAND BY</span>
+            </div>
+          </a>
+        </div>
+      </section>
+
+      <!-- Airframe / cross-section -->
+      <section class="block">
+        <div class="section-header">
+          <span class="num">[ 02 ]</span>
+          <h2>By Airframe</h2>
+          <span class="sub">AIRCRAFT-SPECIFIC TRAINING</span>
+        </div>
+
+        <p style="max-width: 70ch; margin-bottom: 2rem; color: var(--text);">
+          Pick your jet. Every airframe page cross-references phase-based training with
+          aircraft-specific systems, procedures, and weapons employment.
+        </p>
+
+        <div class="three-col">
+          <a href="airframes/fa-18c.html" class="phase-card reveal">
+            <div class="tag">CARRIER-CAPABLE MULTIROLE</div>
+            <h3>F/A-18C Hornet</h3>
+            <p>The classic multirole fighter. Air-to-air, strike, SEAD, CAS, and carrier ops in one airframe.</p>
+            <div class="meta">
+              <span>RESOURCES</span>
+              <span>ENTER &nbsp;›</span>
+            </div>
+          </a>
+
+          <div class="phase-card disabled reveal" aria-disabled="true">
+            <div class="tag">COMING SOON</div>
+            <h3>F-16C Viper</h3>
+            <p>The benchmark multirole. Coming once we expand the airframe library.</p>
+            <div class="meta">
+              <span>PLANNED</span>
+              <span>—</span>
+            </div>
+          </div>
+
+          <div class="phase-card disabled reveal" aria-disabled="true">
+            <div class="tag">COMING SOON</div>
+            <h3>More Airframes</h3>
+            <p>A-10C, F-15E, F-14B, and rotary-wing pages on the roadmap.</p>
+            <div class="meta">
+              <span>PLANNED</span>
+              <span>—</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- About strip -->
+      <section class="block">
+        <div class="section-header">
+          <span class="num">[ 03 ]</span>
+          <h2>How To Use This Site</h2>
+          <span class="sub">RTFM // PILOT BRIEF</span>
+        </div>
+
+        <div class="two-col">
+          <div class="reveal">
+            <h4>If you're new to DCS</h4>
+            <p>
+              Start with <a href="phases/start-here.html">Phase 0</a> — get your sim configured, controls bound,
+              and the basic environment running. Then move into <a href="phases/iqt.html">Phase 1 (IQT)</a>
+              to build airmanship before you ever touch a weapon.
+            </p>
+            <h4 style="margin-top:1.5rem;">If you already fly DCS</h4>
+            <p>
+              Use the phase pages as a syllabus check. Even experienced sim pilots find gaps
+              when measured against a structured pipeline — that's the point.
+            </p>
+          </div>
+
+          <div class="reveal">
+            <div class="callout">
+              <span class="label">// AUTHOR NOTE</span>
+              <p style="margin:0;">
+                This site is a living resource. The IQT phase is populated; other phases are
+                being built out. If you have a great training video, doctrine document, or
+                tool to add, send it along — credit goes to the people who actually made the
+                material.
+              </p>
+            </div>
+
+            <div class="callout" style="border-left-color: var(--hud-green);">
+              <span class="label" style="color: var(--hud-green-bright);">// CREDITS</span>
+              <p style="margin:0;">
+                Every video, article, and tool referenced here belongs to its creator. DCS UPT
+                is a curated index — please subscribe to and support the channels and authors
+                whose work makes this possible.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-inner">
+      <div>
+        <strong style="color: var(--text-bright); letter-spacing: 0.15em;">DCS UPT</strong>
+        <div class="small" style="margin-top: 0.3rem;">UNDERGRADUATE PILOT TRAINING // DCS WORLD</div>
+      </div>
+      <div class="links">
+        <a href="index.html">Home</a>
+        <a href="phases/iqt.html">IQT</a>
+        <a href="airframes/fa-18c.html">F/A-18C</a>
+        <a href="about.html">About</a>
+      </div>
+      <div class="small">
+        NOT AFFILIATED WITH ED, USAF, OR USN.<br/>
+        ALL CREDIT TO ORIGINAL CREATORS.
+      </div>
+    </div>
+  </footer>
+
+  <script src="assets/js/main.js"></script>
+</body>
+</html>
