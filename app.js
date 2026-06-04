@@ -456,11 +456,17 @@ function createApp(db) {
     res.json({ ok: true });
   });
 
-  app.use(express.static(path.join(__dirname)));
+  app.use('/assets', express.static(path.join(__dirname, 'assets')));
+  app.use('/phases', express.static(path.join(__dirname, 'phases')));
+  app.use('/resources', express.static(path.join(__dirname, 'resources')));
+  app.use('/airframes', express.static(path.join(__dirname, 'airframes')));
 
-  app.get('/admin', (_req, res) => {
-    res.sendFile(path.join(__dirname, 'admin', 'index.html'));
-  });
+  app.get('/', (_req, res) => res.sendFile(path.join(__dirname, 'index.html')));
+  app.get('/index.html', (_req, res) => res.sendFile(path.join(__dirname, 'index.html')));
+  app.get('/about.html', (_req, res) => res.sendFile(path.join(__dirname, 'about.html')));
+  app.get('/admin', (_req, res) => res.redirect('/admin/index.html'));
+  app.get('/admin/login.html', (_req, res) => res.sendFile(path.join(__dirname, 'admin', 'login.html')));
+  app.get('/admin/index.html', (_req, res) => res.sendFile(path.join(__dirname, 'admin', 'index.html')));
 
   app.use((err, _req, res, _next) => {
     console.error(err);
