@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Dashboard // DCS UPT</title>
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+  <div class="status-strip">
+    <div class="status-strip-inner">
+      <span>NET <span class="ok">●</span> ONLINE</span>
+      <span>ADMIN <span class="ok blink">●</span> ACTIVE</span>
+      <span data-zulu>--:--:--Z</span>
+    </div>
+  </div>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a href="/index.html" class="brand">
+        <span class="brand-mark">UPT</span>
+        <span>DCS UPT <span class="brand-sub block">CONTENT OPS</span></span>
+      </a>
+      <nav class="nav">
+        <a href="/index.html">Home</a>
+        <a href="/phases/iqt.html">Public IQT</a>
+        <button id="logout-btn" class="nav-inline-btn" type="button">Logout</button>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="block">
+        <div class="section-header">
+          <span class="num">[ CMS ]</span>
+          <h2>Learning Path Manager</h2>
+          <span class="sub">SECTIONS // PATHS // ITEMS // LINKS</span>
+        </div>
+
+        <div class="admin-grid">
+          <aside class="admin-panel">
+            <h3>Section & Path</h3>
+            <label>Section
+              <select id="section-select"></select>
+            </label>
+            <label>Learning Path
+              <select id="path-select"></select>
+            </label>
+            <div class="admin-actions-row">
+              <button type="button" class="btn btn-ghost" id="new-section-btn">+ Section</button>
+              <button type="button" class="btn btn-ghost" id="new-path-btn">+ Path</button>
+            </div>
+          </aside>
+
+          <section class="admin-panel">
+            <h3>Content Items</h3>
+            <p class="small">Drag items to reorder, then click Save Order.</p>
+            <ul id="item-list" class="admin-list"></ul>
+            <div class="admin-actions-row">
+              <button type="button" class="btn btn-ghost" id="save-order-btn">Save Order</button>
+              <button type="button" class="btn" id="new-item-btn">+ New Item</button>
+            </div>
+          </section>
+
+          <section class="admin-panel">
+            <h3>Item Editor</h3>
+            <form id="item-form" class="admin-form">
+              <input type="hidden" name="id" />
+              <label>Title <input type="text" name="title" required /></label>
+              <label>Description <textarea name="description" rows="4"></textarea></label>
+              <label>Type <input type="text" name="contentType" value="video" /></label>
+              <label>Difficulty
+                <select name="difficulty">
+                  <option value="beginner">Beginner</option>
+                  <option value="intermediate">Intermediate</option>
+                  <option value="advanced">Advanced</option>
+                </select>
+              </label>
+              <label>Duration <input type="text" name="duration" placeholder="24:27" /></label>
+              <label>External URL <input type="url" name="externalUrl" /></label>
+              <label>Status
+                <select name="status">
+                  <option value="published">Published</option>
+                  <option value="draft">Draft</option>
+                </select>
+              </label>
+              <label>Section
+                <select name="sectionId" id="item-section-select"></select>
+              </label>
+              <label>Learning Path
+                <select name="learningPathId" id="item-path-select"></select>
+              </label>
+              <div class="admin-actions-row">
+                <button type="submit" class="btn">Save Item</button>
+                <button type="button" class="btn btn-ghost" id="delete-item-btn">Delete Item</button>
+              </div>
+            </form>
+          </section>
+
+          <section class="admin-panel">
+            <h3>Link Editor</h3>
+            <form id="link-form" class="admin-form">
+              <input type="hidden" name="id" />
+              <label>Title <input type="text" name="title" required /></label>
+              <label>URL <input type="url" name="url" required /></label>
+              <div class="admin-actions-row">
+                <button type="submit" class="btn">Save Link</button>
+                <button type="button" class="btn btn-ghost" id="delete-link-btn">Delete Link</button>
+              </div>
+            </form>
+            <ul id="link-list" class="admin-list"></ul>
+          </section>
+        </div>
+
+        <p id="admin-message" class="small"></p>
+      </section>
+    </div>
+  </main>
+
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/admin-dashboard.js"></script>
+</body>
+</html>
