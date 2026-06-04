@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Admin Login // DCS UPT</title>
+  <link rel="stylesheet" href="/assets/css/style.css" />
+</head>
+<body>
+  <div class="status-strip">
+    <div class="status-strip-inner">
+      <span>NET <span class="ok">●</span> ONLINE</span>
+      <span>ADMIN <span class="amber blink">●</span> AUTH REQUIRED</span>
+      <span data-zulu>--:--:--Z</span>
+    </div>
+  </div>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a href="/index.html" class="brand">
+        <span class="brand-mark">UPT</span>
+        <span>DCS UPT <span class="brand-sub block">ADMIN</span></span>
+      </a>
+      <nav class="nav"><a href="/index.html">Home</a></nav>
+    </div>
+  </header>
+
+  <main>
+    <div class="container">
+      <section class="block">
+        <div class="section-header">
+          <span class="num">[ AUTH ]</span>
+          <h2>Admin Login</h2>
+          <span class="sub">ROLE-BASED ACCESS</span>
+        </div>
+        <form id="admin-login-form" class="admin-panel" autocomplete="off">
+          <label>
+            Username
+            <input type="text" name="username" required />
+          </label>
+          <label>
+            Password
+            <input type="password" name="password" required />
+          </label>
+          <button type="submit" class="btn">Login</button>
+          <p id="login-message" class="small"></p>
+        </form>
+      </section>
+    </div>
+  </main>
+
+  <script src="/assets/js/main.js"></script>
+  <script src="/assets/js/admin-login.js"></script>
+</body>
+</html>

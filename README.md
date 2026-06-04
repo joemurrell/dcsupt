@@ -1,124 +1,83 @@
 # DCS UPT
 
-**Undergraduate Pilot Training for DCS World.** A curated training-pipeline website for new pilots in DCS, structured around real USAF training phases and populated with the best free learning resources the sim community has produced.
+DCS UPT is now a **data-driven training site** with an **admin CMS** for managing sections, learning paths, and content items from the frontend.
 
-Live aesthetic: tactical HUD / F/A-18 DDI palette, dark theme, mono-and-display typography.
+## What changed
 
----
+- Added a Node/Express server with SQLite persistence.
+- Added admin authentication with session-based access control.
+- Added CMS entities:
+  - Sections
+  - Learning Paths
+  - Content Items
+  - Content Links
+  - Audit Logs
+- Converted phase pages (`/phases/*.html`) to render from API data.
+- Added read-only fallback JSON on phase pages if API is unavailable.
+- Added admin UI:
+  - `/admin/login.html`
+  - `/admin/index.html`
 
-## What's in here
+## Local development
 
-```
-dcs-upt/
-├── index.html              # Homepage with hero + phase grid
-├── about.html              # Project info, credits, disclaimers
-├── phases/
-│   ├── start-here.html     # Phase 0 — sim setup (placeholder)
-│   ├── iqt.html            # Phase 1 — Initial Qualification Training (POPULATED)
-│   ├── mqt.html            # Phase 2 — Mission Qualification (placeholder)
-│   ├── bfm.html            # Phase 3 — BFM & Air-to-Air (placeholder)
-│   ├── strike.html         # Phase 4 — Strike & SEAD (placeholder)
-│   └── cas.html            # Phase 5 — Close Air Support (placeholder)
-├── airframes/
-│   └── fa-18c.html         # F/A-18C Hornet
-├── resources/
-│   ├── tools.html          # Tools & utilities (placeholder)
-│   ├── comms.html          # Comms & brevity (placeholder)
-│   ├── doctrine.html       # Doctrine & theory (placeholder)
-│   └── communities.html    # Squadrons & communities (placeholder)
-└── assets/
-    ├── css/style.css       # All styling
-    └── js/main.js          # Nav toggle + Zulu time + active link
+```bash
+cd /tmp/workspace/joemurrell/dcsupt
+npm install
+npm start
 ```
 
-Everything is **static HTML/CSS/JS** — no build step, no framework, no dependencies. Open `index.html` in a browser and it works.
+App runs on `http://localhost:3000` by default.
 
----
+### Default admin login
 
-## Deploying to the web
+Set your own in env vars for production.
 
-Two recommended options. Both are free.
+- username: `admin`
+- password: `admin123!`
 
-### Option A — Netlify Drop (easiest, 60 seconds)
+## Environment variables
 
-1. Go to https://app.netlify.com/drop
-2. Drag the entire `dcs-upt/` folder onto the page
-3. Get a random URL like `https://wild-falcon-12345.netlify.app`
-4. (Optional) Sign in to claim the site and pick a custom subdomain like `dcs-upt.netlify.app`
-5. Share that URL in Discord. Done.
+- `PORT` (default `3000`)
+- `DATABASE_PATH` (default `./data/dcsupt.sqlite`)
+- `SESSION_SECRET` (set a strong random value in production)
+- `ADMIN_USERNAME` (default `admin`)
+- `ADMIN_PASSWORD` (default `admin123!`, used only for first seed)
 
-To update: drag the folder again. Re-deploys instantly.
+## Run tests
 
-### Option B — GitHub Pages (better long-term)
-
-1. Create a new public GitHub repo named `dcs-upt`
-2. Upload all the files in this folder to the repo root
-3. In the repo: **Settings → Pages → Source → Deploy from a branch → main / root → Save**
-4. Wait ~1 minute. Your site is live at `https://YOUR-USERNAME.github.io/dcs-upt/`
-
-To update: commit changes to `main`, site re-deploys automatically.
-
-Pros: free, versioned, easy to accept contributions, you can add a custom domain (like `dcsupt.com`) for ~$12/yr.
-
----
-
-## Editing content
-
-### Adding a new video to IQT
-
-Open `phases/iqt.html`, find the relevant `<div class="resource-list">`, and copy the pattern of an existing entry:
-
-```html
-<a href="https://www.youtube.com/watch?v=VIDEO_ID" class="resource" target="_blank" rel="noopener">
-  <div class="marker">REF-XX</div>
-  <div>
-    <div class="title">Video Title Here</div>
-    <div class="channel">CHANNEL NAME</div>
-    <div class="desc">One- or two-sentence description of why this resource is useful.</div>
-  </div>
-  <div class="meta">
-    <span class="duration">MM:SS</span>
-    <span class="level beg">BEGINNER</span>  <!-- or .int INTERMEDIATE / .adv ADVANCED -->
-  </div>
-</a>
+```bash
+npm test
 ```
 
-### Replacing the placeholder playlist URLs
+## Deployment
 
-All IQT video links currently point to the source playlist:
-`https://www.youtube.com/playlist?list=PLrIW8wRbQBZbdk5BRw7RcmvdtrKhJArP0`
+### Railway (recommended)
 
-Replace each with the direct `https://www.youtube.com/watch?v=...` URL once you have them. A find-and-replace across `phases/iqt.html` is fastest.
+Railway is the best fit for this app because it needs server-side auth and a database.
 
-### Building out a new phase page
+1. Connect this repo to Railway.
+2. Set environment variables (`SESSION_SECRET`, admin credentials).
+3. Deploy with start command `npm start`.
+4. Attach persistent volume or managed DB path for `DATABASE_PATH`.
 
-The placeholder phase pages (MQT, BFM, etc.) already have the full page chrome. Replace the central `<section class="block"><div class="placeholder">...</div></section>` with sections matching the IQT structure.
+### GitHub Pages
 
-### Changing the color scheme
+GitHub Pages can only host static files, so admin login + CMS write operations are not supported there by themselves.
 
-All theme colors are CSS custom properties at the top of `assets/css/style.css`:
+You can still host static pages on GitHub Pages in read-only mode and point them to a separate backend API hosted on Railway.
 
-```css
-:root {
-  --hud-green: #5fb87a;
-  --hud-amber: #f5b942;
-  --hud-cyan: #6fd3ff;
-  ...
-}
-```
+## Content operations now supported
 
-Change those values and the whole site updates.
+From the admin dashboard you can:
 
----
+- Add/edit/delete sections and learning paths
+- Add/edit/delete content items
+- Move items between sections/paths
+- Reorder items (drag and drop + save)
+- Publish/unpublish content
+- Add/edit/delete related links per item
 
-## Browser support
+## Notes
 
-Modern evergreen browsers (Chrome, Firefox, Safari, Edge). No IE. CSS Grid + custom properties are used throughout.
-
----
-
-## Credits & disclaimer
-
-All linked video, audio, and text content belongs to its creators. DCS UPT is a curated index, not a host. Subscribe to and support the creators whose work makes this possible.
-
-Not affiliated with Eagle Dynamics, USAF, USN, or any linked creator. DCS World is a trademark of Eagle Dynamics. This site is fan-made educational content for sim enthusiasts.
+- This repository remains framework-light and keeps the original site design.
+- Existing phase URLs are preserved.

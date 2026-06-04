@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" data-phase-slug="start-here">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -7,89 +7,11 @@
   <link rel="stylesheet" href="../assets/css/style.css" />
 </head>
 <body>
-
-  <div class="status-strip">
-    <div class="status-strip-inner">
-      <span>NET <span class="ok">●</span> ONLINE</span>
-      <span>PHASE 0 <span class="amber blink">●</span> SETUP</span>
-      <span>SYS <span class="amber">●</span> v0.1 ALPHA</span>
-      <span data-zulu>--:--:--Z</span>
-    </div>
-  </div>
-
-  <header class="topbar">
-    <div class="topbar-inner">
-      <a href="../index.html" class="brand">
-        <span class="brand-mark">UPT</span>
-        <span>
-          DCS UPT
-          <span class="brand-sub block">UNDERGRADUATE&nbsp;PILOT&nbsp;TRAINING</span>
-        </span>
-      </a>
-      <button class="nav-toggle" aria-expanded="false">[ MENU ]</button>
-      <nav class="nav">
-        <a href="../index.html">Home</a>
-        <a href="iqt.html" data-section="phases">Phases</a>
-        <a href="../airframes/fa-18c.html" data-section="airframes">Airframes</a>
-        <a href="../resources/tools.html" data-section="resources">Resources</a>
-        <a href="../about.html">About</a>
-      </nav>
-    </div>
-  </header>
-
-  <main>
-    <div class="container">
-
-      <div class="page-header">
-        <div class="breadcrumb">
-          <a href="../index.html">Home</a>
-          <span class="sep">›</span>
-          <span>Start Here</span>
-        </div>
-        <div class="designator">PHASE 0 // SIM SETUP &amp; PREREQUISITES</div>
-        <h1>Start Here</h1>
-        <p class="lead">
-          Before you touch a syllabus, your sim has to actually work. Phase 0 covers hardware,
-          control bindings, graphics settings, comms setup, and the baseline DCS configuration
-          every serious pilot needs.
-        </p>
-      </div>
-
-      <section class="block">
-        <div class="placeholder">
-          <div class="icon">[ STAND BY ]</div>
-          <h3>Phase 0 Content Coming Soon</h3>
-          <p>
-            This page will cover: hardware recommendations (HOTAS, rudder pedals, VR vs. monitor),
-            DCS install &amp; module selection, control binding strategy, graphics &amp; performance
-            tuning, SRS / comms setup, and recommended starter modules.
-          </p>
-          <a href="iqt.html" class="btn">Skip to IQT &nbsp;›</a>
-        </div>
-      </section>
-
-    </div>
-  </main>
-
-  <footer>
-    <div class="footer-inner">
-      <div>
-        <strong style="color: var(--text-bright); letter-spacing: 0.15em;">DCS UPT</strong>
-        <div class="small" style="margin-top: 0.3rem;">UNDERGRADUATE PILOT TRAINING // DCS WORLD</div>
-      </div>
-      <div class="links">
-        <a href="../index.html">Home</a>
-        <a href="iqt.html">IQT</a>
-        <a href="../airframes/fa-18c.html">F/A-18C</a>
-        <a href="../about.html">About</a>
-      </div>
-      <div class="small">
-        NOT AFFILIATED WITH ED, USAF, OR USN.<br/>
-        ALL CREDIT TO ORIGINAL CREATORS.
-      </div>
-    </div>
-  </footer>
-
-  <script src="../assets/js/main.js"></script>
+  <div class="status-strip"><div class="status-strip-inner"><span>NET <span class="ok">●</span> ONLINE</span><span>PHASE 0 <span class="amber blink">●</span> SETUP</span><span data-zulu>--:--:--Z</span></div></div>
+  <header class="topbar"><div class="topbar-inner"><a href="../index.html" class="brand"><span class="brand-mark">UPT</span><span>DCS UPT <span class="brand-sub block">UNDERGRADUATE&nbsp;PILOT&nbsp;TRAINING</span></span></a><button class="nav-toggle" aria-expanded="false" aria-controls="primary-nav">[ MENU ]</button><nav class="nav" id="primary-nav"><a href="../index.html">Home</a><a href="iqt.html" data-section="phases">Phases</a><a href="../airframes/fa-18c.html" data-section="airframes">Airframes</a><a href="../resources/tools.html" data-section="resources">Resources</a><a href="../about.html">About</a></nav></div></header>
+  <main><div class="container"><div class="page-header"><div class="breadcrumb"><a href="../index.html">Home</a><span class="sep">›</span><span>Start Here</span></div><div class="designator">PHASE 0 // SIM SETUP & PREREQUISITES</div><h1>Start Here</h1><p class="lead">Setup and prerequisite content is now managed through the admin dashboard.</p></div><div id="phase-content"></div></div></main>
+  <footer><div class="footer-inner"><div><strong style="color: var(--text-bright); letter-spacing: 0.15em;">DCS UPT</strong><div class="small" style="margin-top: 0.3rem;">UNDERGRADUATE PILOT TRAINING // DCS WORLD</div></div><div class="links"><a href="../index.html">Home</a><a href="iqt.html">IQT</a><a href="../airframes/fa-18c.html">F/A-18C</a><a href="../about.html">About</a></div><div class="small">NOT AFFILIATED WITH ED, USAF, OR USN.<br/>ALL CREDIT TO ORIGINAL CREATORS.</div></div></footer>
+  <script id="phase-fallback-data" type="application/json">{"section":{"slug":"start-here","title":"Start Here"},"learningPaths":[{"id":1,"title":"Sim Setup Fundamentals","description":"Get your hardware, controls, and environment ready for training."}],"items":[{"id":1,"learningPathId":1,"title":"DCS Beginner Setup Guide","description":"Walkthrough for initial DCS setup and graphics optimization.","contentType":"video","difficulty":"beginner","duration":"18:00","externalUrl":"https://www.youtube.com/results?search_query=dcs+beginner+setup+guide"}],"links":[]}</script>
+  <script src="../assets/js/main.js"></script><script src="../assets/js/phase-data.js"></script>
 </body>
 </html>
